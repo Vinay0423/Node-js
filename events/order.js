@@ -1,6 +1,7 @@
 const EventEmitter= require('events')
 const Pizza= require('./pizza')
 const Serve = require('./Serve')
+const Process=require('process')
 
 const pizza= new Pizza()
 const serve= new Serve()
@@ -16,6 +17,7 @@ pizza.order('large','mushroom')
 
 
 
+console.log(process.argv);
 
 
 

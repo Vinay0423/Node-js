@@ -1,7 +1,7 @@
 const http = require('http')
 const fs = require('fs')
 const {parse}= require('querystring')
-const{}=require('')
+const { MongoClient } = require('mongodb')
 
 
 let PORT = 5000
@@ -22,9 +22,16 @@ let server = http.createServer((req, res) => {
 
             //event end
 
-            req.on("end", () => {
+            req.on("end",async () => {
                 let parsedBody= parse(body) //parsedbody will be in object,but we can't send object to client
-                res.end(JSON.stringify(parsedBody))  //converting object to string and then send to client
+               
+                //db logic
+
+                let client=await MongoClient.connect("mongodb://127.0.0.1:27017")
+               let db= await client .db("userDB")
+               let collection=await db.collection('users')
+               await collection.insertOne(parsedBody)
+               res.end("data stored in mongodb")
             })
         } else {
             res.end('Some other type of data')
