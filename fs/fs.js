@@ -21,13 +21,13 @@ const fs = require('fs/promises')
 //     }
 // })
 
-// fs.readFile("./asyncFile.txt", "utf-8", (err, data) => {
-//     if (data) {
-//         console.log(data);
-//     } else {
-//         console.log(err);
-//     }
-// })
+fs.readFile("./asyncFile.txt", "utf-8", (err, data) => {
+    if (data) {
+        console.log(data.toString());
+    } else {
+        console.log(err);
+    }
+})
 
 // fs.appendFile("./asyncFile.txt", "\n updated value given", err => {
 //     if (err) {
@@ -134,68 +134,68 @@ const fs = require('fs/promises')
 
 
 //using async and await 
-async function writePromise(){
-    try {
-         await fs.writeFile("./promise.txt","")
-        console.log("file created");
-    } catch (error) {
-        console.log(error);
-    }
-}
+// async function writePromise(){
+//     try {
+//          await fs.writeFile("./promise.txt","")
+//         console.log("file created");
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
-writePromise()
+// writePromise()
 
-async function readPromise(){
-    try {
-        let data= await fs.readFile("./promise.txt","utf-8")
-        console.log(data);
-    } catch (error) {
-        console.log(error);
-    }
-}
+// async function readPromise(){
+//     try {
+//         let data= await fs.readFile("./promise.txt","utf-8")
+//         console.log(data);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
-readPromise()
+// readPromise()
 
-async function appendPromise(){
-    try {
-         await fs.appendFile("./promise.txt","\n value modified")
-         console.log('value updated');
-    } catch (error) {
-        console.log(error);
-    }
-}
+// async function appendPromise(){
+//     try {
+//          await fs.appendFile("./promise.txt","\n value modified")
+//          console.log('value updated');
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
-appendPromise()
+// appendPromise()
 
-async function unlinkPromise(){
-    try {
-         await fs.unlink("./promise.txt")
-         console.log('file deleted');
-    } catch (error) {
-        console.log(error);
-    }
-}
+// async function unlinkPromise(){
+//     try {
+//          await fs.unlink("./promise.txt")
+//          console.log('file deleted');
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
-unlinkPromise()
+// unlinkPromise()
 
-async function mkdirPromise(){
-    try {
-        await fs.mkdir("../async&await")
-        console.log('folder created');
-   } catch (error) {
-       console.log(error);
-   }
-}
+// async function mkdirPromise(){
+//     try {
+//         await fs.mkdir("../async&await")
+//         console.log('folder created');
+//    } catch (error) {
+//        console.log(error);
+//    }
+// }
 
-async function rmkdirPromise(){
-    try {
-        await fs.rmdir("../async&await")
-        console.log('folder deleted');
-   } catch (error) {
-       console.log(error);
-   }
-}
+// async function rmkdirPromise(){
+//     try {
+//         await fs.rmdir("../async&await")
+//         console.log('folder deleted');
+//    } catch (error) {
+//        console.log(error);
+//    }
+// }
 
-mkdirPromise()
-rmkdirPromise()
+// mkdirPromise()
+// rmkdirPromise()
 

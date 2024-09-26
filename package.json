@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "exceljs": "^4.4.0",
     "mongodb": "^6.7.0"
   }
 }
